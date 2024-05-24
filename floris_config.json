@@ -1,0 +1,23 @@
+{
+    "wake_model": "Bastuans2003",
+    "wind_turbines": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "D": 126.0,  # Rotor diameter
+        "Z": 90.0,   # Hub height
+        "Ct": 0.3,   # Thrust coefficient
+        "Cp": 0.42,  # Power coefficient
+      },
+      # Add more wind turbine configurations here following the same format
+    ],
+    "wind_farm": {
+      "wind_speed": 10.0,  # m/s
+      "wind_direction": 0.0,  # degrees
+      "ambient_temperature": 15.0,  # degrees C
+    },
+    "simulation": {
+      "n_wake_iterations": 10,
+      "aIj_filename": "None",  # Optional filename for turbulence intensity
+    }
+  }

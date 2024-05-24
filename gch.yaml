@@ -1,0 +1,7 @@
+# gch.yaml
+
+
+layout_x: [0, 400, 800]
+layout_y: [0, 400, 800]
+turbine_type: ["nrel_5mw", "nrel_5mw", "nrel_5mw"]
+  

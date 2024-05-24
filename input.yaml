@@ -1,0 +1,27 @@
+# gch.yaml
+  wake:
+    model_strings: ["gauss"]
+  farm:
+    layout_x: [0, 400, 800]
+    layout_y: [0, 400, 800]
+    turbine_type: ["nrel_5mw", "nrel_5mw", "nrel_5mw"]
+  turbines:
+    - type: "nrel_5mw"
+      hub_height: 90.0
+      rotor_diameter: 126.0
+      blade_count: 3
+      generator_efficiency: 0.944
+      power_thrust_table:
+        wind_speed: [3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0]
+        thrust: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, 0.0, 0.0]
+        power: [0, 0, 0, 500, 1500, 3000, 4500, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 0]
+  flow_field:
+    wind_speeds: [8.0]
+    wind_directions: [270.0]
+    wind_shear: 0.12
+    wind_veer: 0.0
+    turbulence_intensity: 0.1
+    reference_wind_height: 90.0
+  logging:
+    console: true
+    level: "INFO"
