@@ -1,23 +1,34 @@
 # input.yaml
 
+description: "Sample FLORIS input file"
+floris_version: 4.0
+logging:
+  level: "INFO"
+  file: "floris.log"
+name: "SampleWindFarm"
+solver:
+  type: "turbine"
+  options:
+    turbine_fidelity: "standard"
+    convergence_criteria: 1e-3
+
 farm:
   layout_x: [0.0, 500.0, 1000.0]
   layout_y: [0.0, 0.0, 0.0]
   wind_directions: [0.0]
   wind_speeds: [8.0]
-
-turbine:
-  rotor_diameter: 126.0
-  hub_height: 90.0
-  pP: 1.88
-  pT: 0.06
-  power_thrust_table:
-    power:
-      - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    thrust:
-      - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    wind_speed:
-      - [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+  turbines:
+    - rotor_diameter: 126.0
+      hub_height: 90.0
+      pP: 1.88
+      pT: 0.06
+      power_thrust_table:
+        power:
+          - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        thrust:
+          - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        wind_speed:
+          - [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 
 flow_field:
   wind_directions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -27,18 +38,31 @@ flow_field:
 wake:
   model_strings: 
     velocity_model: "gauss"
-    deflection_model: "curl"
-    added_turbulence_model: "gauss"
-  parameters:
-    gauss:
-      ka: 0.3
-      kb: 0.004
-      alpha: 0.58
-      beta: 0.077
-      ad: 0.0
-      bd: 0.0
-    curl:
+    deflection_model: "none"  # Changed from "gauss" to "none"
+    combination_model: "sosfs"
+    turbulence_model: "some_model"
+  velocity_model: "gauss"
+  wake_velocity_parameters:
+    gauss: {}
+  deflection_model:
+    parameters:
       ke: 0.065
       kw: 0.35
       baseline_velocity: 9.0
       direction: "x"
+  enable_active_wake_mixing: false
+  enable_secondary_steering: false
+  enable_transverse_velocities: false
+  enable_yaw_added_recovery: false
+  wake_deflection_parameters:
+    param_1: 0.1
+    param_2: 0.2
+    param_3: 0.3
+    param_4: 0.4
+    param_5: 0.5
+  wake_turbulence_parameters:
+    param_1: 1.0
+    param_2: 2.0
+    param_3: 3.0
+    param_4: 4.0
+    param_5: 5.0
